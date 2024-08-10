@@ -1,4 +1,3 @@
-
 # ICP Token Wallet
 
 ## Overview
@@ -15,7 +14,7 @@ The ICP Token Wallet is a Rust-based wallet built for the Internet Computer Prot
 - [Project Structure](#project-structure)
 - [Contributing](#contributing)
 - [License](#license)
-
+- [Notes](#notes)
 
 ## Features
 
@@ -33,24 +32,24 @@ The ICP Token Wallet is a Rust-based wallet built for the Internet Computer Prot
 
 ### Clone the Repository
 
-<!-- 
-git clone https://github.com/lavishn01/icp-token-wallet.git
-cd icp-token-wallet -->
-
+```bash
+git clone https://github.com/lavishn01/icp_token_wallet.git
+cd icp_token_wallet
+```
 
 ### Install Rust Dependencies
 
-
-<!-- cargo build -->
-
+```bash
+cargo build
+```
 
 ### Install DFX SDK
 
 If you don't have the DFX SDK installed, install it using the following command:
 
-
-<!-- sh -ci "$(curl -fsSL https://internetcomputer.org/install.sh)" -->
-
+```bash
+sh -ci "$(curl -fsSL https://internetcomputer.org/install.sh)"
+```
 
 ## Setup
 
@@ -58,17 +57,17 @@ If you don't have the DFX SDK installed, install it using the following command:
 
 Before deploying the smart contract, ensure that the ICP test network is running:
 
-
-<!-- dfx start --background -->
-
+```bash
+dfx start --background
+```
 
 ### 2. Deploy the Canister
 
 Deploy the smart contract to the local test network:
 
-
-<!-- dfx deploy -->
-
+```bash
+dfx deploy
+```
 
 This will deploy the canister and output the canister ID, which is used to interact with the wallet.
 
@@ -78,25 +77,25 @@ This will deploy the canister and output the canister ID, which is used to inter
 
 To send tokens to another address, use the `send_tokens` function. Replace `<recipient_address>` with the desired recipient's address and `<amount>` with the number of tokens to send.
 
-<!-- 
+```bash
 dfx canister call <canister_id> send_tokens '("<recipient_address>", <amount>)'
--->
+```
 
 ### 2. Receiving Tokens
 
 To receive tokens and update the balance, use the `receive_tokens` function:
 
-<!-- 
-dfx canister call <canister_id> receive_tokens '("<sender_address>", <amount>)'
- -->
+```bash
+dfx canister call <canister_id> receive_tokens '(100)'
+```
 
 ### 3. Checking the Balance
 
 To check the current token balance of the wallet, use the `get_balance` function:
 
-
-<!-- dfx canister call <canister_id> get_balance -->
-
+```bash
+dfx canister call <canister_id> get_balance
+```
 
 This will return the current balance stored in the wallet.
 
@@ -106,15 +105,15 @@ This will return the current balance stored in the wallet.
 
 The project includes a suite of unit tests to validate the core functionalities of the token wallet. To run the tests, use the following command:
 
-
-<!-- cargo test -->
-
+```bash
+cargo test
+```
 
 The tests will cover scenarios like sending tokens, receiving tokens, and fetching balances.
 
 ## Project Structure
 
-<!-- 
+```plaintext
 ├── src
 │   ├── canister.rs       # Main canister logic
 │   ├── lib.rs            # Library entry point
@@ -122,24 +121,21 @@ The tests will cover scenarios like sending tokens, receiving tokens, and fetchi
 ├── dfx.json              # DFX configuration file
 ├── Cargo.toml            # Rust project configuration file
 ├── README.md             # Project documentation
-└── ... -->
-
+└── ...
+```
 
 ## Contributing
 
 Contributions are welcome! Please fork the repository and submit a pull request for any enhancements, bug fixes, or improvements.
 
-
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## Notes
 
+- **Dependencies:** Ensure you have the latest versions of Rust and DFX SDK to avoid compatibility issues.
+- **Further Development:** Consider adding more advanced features such as multi-signature support or a front-end interface for easier interaction.
+- **Security:** Review and enhance the security of the smart contract before using it in a production environment.
+- **Documentation:** Keep the documentation updated as you make changes to the project.
 
-
-### Notes:
-
-<!-- Dependencies: Ensure you have the latest versions of Rust and DFX SDK to avoid compatibility issues.
-Further Development: Consider adding more advanced features such as multi-signature support or a front-end interface for easier interaction.
-Security: Review and enhance the security of the smart contract before using it in a production environment.
-Documentation: Keep the documentation updated as you make changes to the project. -->
