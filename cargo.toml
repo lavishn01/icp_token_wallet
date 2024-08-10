@@ -1,0 +1,30 @@
+
+name = "icp_token_wallet"
+
+# The authors of the project
+authors = ["Lavish Nagar <lavishnagar2433@gmail.com>"]
+
+# A brief description of project
+description = "A Rust-based token wallet for the Internet Computer Protocol (ICP) blockchain."
+
+# The repository URL
+repository = "https://github.com/lavishn01/icp_token_wallet"
+
+
+
+
+# Readme file (optional)
+readme = "README.md"
+
+# The entry point for the project
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+ic-cdk = "0.7.3"
+ic-cdk-macros = "0.7.3"
+candid = "0.8.2"
+
+[dev-dependencies]
+ic-cdk-macros = "0.7.3"
+candid = "0.8.2"
